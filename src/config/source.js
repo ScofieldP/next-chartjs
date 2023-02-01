@@ -91,37 +91,37 @@ export const options = {
   },
 
   plugins: {
-    // tooltip: {
-    //   // backgroundColor: "#eee",
-    //   borderColor: CHART_COLORS.orange,
-    //   borderWidth: 1,
-    //   bodyColor: "#fff",
-    //   footerColor: "#fff",
-    //   titleColor: CHART_COLORS.orange,
-    //   displayColors: false,
-    //   yAlign: "bottom",
-    //   callbacks: {
-    //     title: function (context) {
-    //       console.log(context);
-    //     },
-    //     label: function (context) {
-    //       return (
-    //         "Giá trị" +
-    //         " " +
-    //         context.dataset.label +
-    //         ":" +
-    //         " " +
-    //         context.dataset.data[context.dataIndex]
-    //       );
-    //       console.log(context);
-    //     },
-    //   },
-    // },
     tooltip: {
-      // enabled: false,
-
-      position: "nearest",
+      // backgroundColor: "#eee",
+      borderColor: CHART_COLORS.orange,
+      borderWidth: 1,
+      bodyColor: "#fff",
+      footerColor: "#fff",
+      titleColor: CHART_COLORS.orange,
+      displayColors: false,
+      yAlign: "bottom",
+      callbacks: {
+        title: function (context) {
+          console.log(context);
+        },
+        label: function (context) {
+          return (
+            "Giá trị" +
+            " " +
+            context.dataset.label +
+            ":" +
+            " " +
+            context.dataset.data[context.dataIndex]
+          );
+          console.log(context);
+        },
+      },
     },
+    // tooltip: {
+    //   // enabled: false,
+
+    //   position: "nearest",
+    // },
     legend: {
       labels: {
         usePointStyle: true,
