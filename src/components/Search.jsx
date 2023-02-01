@@ -35,13 +35,7 @@ export default function Search() {
         <StyledButton>Tra cứu</StyledButton>
       </SelectContainer>
       <FlexIcon>
-        <Image
-          src="/img/chart.png"
-          alt="Chart"
-          width="30"
-          height="30"
-          priority
-        />
+        <Image src="/img/chart.png" alt="Chart" width="30" height="30" priority/>
         <Image
           src="/img/calc.png"
           alt="calc"

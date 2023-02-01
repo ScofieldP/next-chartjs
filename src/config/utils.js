@@ -5,7 +5,6 @@ import { valueOrDefault } from "chart.js/helpers";
 
 // Adapted from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
 var _seed = Date.now();
-
 export function srand(seed) {
   _seed = seed;
 }
@@ -41,19 +40,6 @@ export function numbers(config) {
   }
 
   return data;
-}
-
-export function points(config) {
-  const xs = numbers(config);
-  const ys = numbers(config);
-  return xs.map((x, i) => ({ x, y: ys[i] }));
-}
-
-export function bubbles(config) {
-  return points(config).map((pt) => {
-    pt.r = rand(config.rmin, config.rmax);
-    return pt;
-  });
 }
 
 export function labels(config) {
@@ -105,8 +91,20 @@ export function months(config) {
   return values;
 }
 
-export function timeDate() {}
+export function days(config) {
+  var cfg = config || {};
+  var count = cfg.count || 12;
+  var section = cfg.section;
+  var values = [];
+  var i, value;
 
+  for (i = 0; i < count; ++i) {
+    value = MONTHS[Math.ceil(i) % 12];
+    values.push(value.substring(0, section));
+  }
+
+  return values;
+}
 export const COLORS = [
   "#4dc9f6",
   "#f67019",
@@ -153,7 +151,8 @@ export function namedColor(index) {
 }
 
 export function newDate(days) {
-  return DateTime.now().plus({ days }).toJSDate();
+  const date = DateTime.now().plus({ days }).toJSDate();
+  return date;
 }
 
 export function newDateString(days) {

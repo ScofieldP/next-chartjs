@@ -1,13 +1,25 @@
-import { numbers, transparentize, months, CHART_COLORS } from "./utils.js";
+import {
+  numbers,
+  transparentize,
+  months,
+  CHART_COLORS,
+  getDates,
+} from "./utils.js";
 
-export const DATA_COUNT = 7;
+export const DATA_COUNT = 5;
 export const NUMBER_CFG = {
   count: DATA_COUNT,
   min: 0.9,
   max: 1,
 };
 
-export const labels = months({ count: 7 });
+export const labels = [
+  "2020-07-01",
+  "2020-07-11",
+  "2020-07-21",
+  "2020-07-31",
+  "2020-08-10",
+];
 export const data = {
   labels: labels,
   datasets: [
@@ -50,9 +62,25 @@ const customLabel = (tooltip) => {
   };
 };
 export const options = {
+  // interaction: {
+  //   mode: "index",
+  //   intersect: false,
+  // },
   // responsive: true,
   data: data,
   scales: {
+    x: {
+      ticks: {
+        stepSize: 10,
+      },
+      type: "time",
+      time: {
+        unit: "day",
+        displayFormats: {
+          day: "D",
+        },
+      },
+    },
     y: {
       min: 0.9,
       max: 1,
@@ -63,31 +91,36 @@ export const options = {
   },
 
   plugins: {
+    // tooltip: {
+    //   // backgroundColor: "#eee",
+    //   borderColor: CHART_COLORS.orange,
+    //   borderWidth: 1,
+    //   bodyColor: "#fff",
+    //   footerColor: "#fff",
+    //   titleColor: CHART_COLORS.orange,
+    //   displayColors: false,
+    //   yAlign: "bottom",
+    //   callbacks: {
+    //     title: function (context) {
+    //       console.log(context);
+    //     },
+    //     label: function (context) {
+    //       return (
+    //         "Giá trị" +
+    //         " " +
+    //         context.dataset.label +
+    //         ":" +
+    //         " " +
+    //         context.dataset.data[context.dataIndex]
+    //       );
+    //       console.log(context);
+    //     },
+    //   },
+    // },
     tooltip: {
-      // backgroundColor: "#eee",
-      borderColor: CHART_COLORS.orange,
-      borderWidth: 1,
-      bodyColor: "#fff",
-      footerColor: "#fff",
-      titleColor: CHART_COLORS.orange,
-      displayColors: false,
-      yAlign: "bottom",
-      callbacks: {
-        title: function (context) {
-          console.log(context);
-        },
-        label: function (context) {
-          return (
-            "Giá trị" +
-            " " +
-            context.dataset.label +
-            ":" +
-            " " +
-            context.dataset.data[context.dataIndex]
-          );
-          console.log(context);
-        },
-      },
+      // enabled: false,
+
+      position: "nearest",
     },
     legend: {
       labels: {
@@ -95,8 +128,14 @@ export const options = {
         pointStyle: "rect",
       },
 
-      // position: window.innerWidth > 470 ? "top" : "bottom",
-      // align: window.innerWidth > 470 ? "end" : "center",
+      position:
+        typeof window !== "undefined" && window.innerWidth > 470
+          ? "top"
+          : "bottom",
+      align:
+        typeof window !== "undefined" && window.innerWidth > 470
+          ? "end"
+          : "center",
       position: "top",
       align: "end",
     },

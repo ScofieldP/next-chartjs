@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale, // tọa độ x
+  TimeScale,
   LinearScale, // tọa độ y
   PointElement,
   LineElement,
@@ -24,11 +25,14 @@ import {
   namedColor,
   transparentize,
   months,
+  days,
   rand,
+  newDate,
 } from "@/config/utils";
 ChartJS.register(
   CategoryScale,
   LinearScale,
+  TimeScale,
   PointElement,
   LineElement,
   Title,
@@ -90,7 +94,7 @@ export default function Chart() {
   return (
     <Container>
       <LineContainer>
-        <Line data={state} options={options} />
+        <Line data={state} options={options} width={1000} height={500} />
       </LineContainer>
       <ButtonContainer>
         <ChartButton onClick={random}>Randomize</ChartButton>
