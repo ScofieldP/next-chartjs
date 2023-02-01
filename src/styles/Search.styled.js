@@ -1,18 +1,32 @@
 import styled from "styled-components";
+import { mobile } from "./responsive";
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
+  padding: 12px 40px;
   background-color: #ffffff;
   border-radius: 4px;
+
+  ${mobile({
+    flexDirection: "column",
+    padding: "0",
+    justifyContent: "none",
+  })}
 `;
 
 export const SelectContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
+  ${mobile({
+    display: "inline-flex",
+    flexDirection: "column",
+    marginLeft: "0",
+    width: "100%",
+    marginBottom: "14px",
+  })};
 `;
 
 export const Select = styled.select`
@@ -25,10 +39,11 @@ export const Select = styled.select`
   border: 1px solid #dbdfe1;
   border-radius: 4px;
   cursor: pointer;
+  ${mobile({
+    width: "85vw",
+    marginBottom: "14px",
+  })}
 `;
-// export const StyledOption = styled.option`
-//   margin-left: 10px;
-// `;
 
 export const InputContainer = styled.div`
   padding: 0px 20px;
@@ -39,6 +54,11 @@ export const InputContainer = styled.div`
   justify-content: space-around;
   border: 1px solid #dbdfe1;
   border-radius: 4px;
+  ${mobile({
+    width: "85vw",
+
+    marginLeft: "0",
+  })}
 `;
 
 export const StyledInput = styled.input`
@@ -52,6 +72,11 @@ export const StyledInput = styled.input`
 export const FlexIcon = styled.div`
   display: inline-flex;
   align-items: center;
+  ${mobile({
+    left: "130px",
+    top: "160px",
+    marginTop: "24px",
+  })}
 `;
 
 export const StyledButton = styled.button`
@@ -65,4 +90,9 @@ export const StyledButton = styled.button`
   margin-left: 24px;
   cursor: pointer;
   text-transform: uppercase;
+  ${mobile({
+    width: "85vw",
+    marginLeft: "0",
+    marginTop: "14px",
+  })}
 `;

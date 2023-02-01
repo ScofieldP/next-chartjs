@@ -21,8 +21,8 @@ export function numbers(config) {
   // console.log(config);
 
   var cfg = config || {};
-  var min = valueOrDefault(cfg.min, 0);
-  var max = valueOrDefault(cfg.max, 100);
+  var min = valueOrDefault(cfg.min, 0.9);
+  var max = valueOrDefault(cfg.max, 1);
   var from = valueOrDefault(cfg.from, []);
   var count = valueOrDefault(cfg.count, 8);
   var decimals = valueOrDefault(cfg.decimals, 8);
@@ -104,6 +104,8 @@ export function months(config) {
 
   return values;
 }
+
+export function timeDate() {}
 
 export const COLORS = [
   "#4dc9f6",

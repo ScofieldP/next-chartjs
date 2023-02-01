@@ -1,22 +1,38 @@
 import styled from "styled-components";
+import { mobile } from "./responsive";
 
 export const Container = styled.div`
   width: 100%;
   background-color: white;
   margin-top: 10px;
   padding: 19px 20px 20px 31px;
+
+  ${mobile({
+    marginTop: "24px",
+    padding: "0",
+    // width: "95%",
+    // height: "365px",
+    // margin: "0",
+  })}
 `;
 
 export const LineContainer = styled.div`
-  position: relative;
-  height: 60vh;
-  width: 60vw;
-  left: 20px;
+  ${mobile({
+    padding: "0",
+    width: "90vw",
+
+    // width: "95%",
+    // height: "365px",
+    // margin: "0",
+  })}
 `;
 
 export const ButtonContainer = styled.div`
   text-align: center;
   margin-top: 10px;
+  ${mobile({
+    margin: 0,
+  })}
 `;
 export const ChartButton = styled.button`
   margin: 16px 0;
