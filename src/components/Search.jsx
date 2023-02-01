@@ -1,15 +1,44 @@
 import React from "react";
-import { Container, FlexIcon, SelectContainer } from "@/styles/Search.styled";
+import {
+  Container,
+  FlexIcon,
+  SelectContainer,
+  Select,
+  InputContainer,
+  StyledInput,
+  StyledButton,
+} from "@/styles/Search.styled";
 import Image from "next/image";
+import { data } from "@/config/source";
 export default function Search() {
   return (
     <Container>
-      <SelectContainer></SelectContainer>
+      <SelectContainer>
+        <Select>
+          <option value="">Tất cả các quỹ</option>
+          {data.datasets?.map((data, index) => (
+            <option key={index} value={data.label}>
+              {data.label}
+            </option>
+          ))}
+        </Select>
+        <InputContainer>
+          <StyledInput type="text" value="01/07/2020 - 10/08/2020" />
+          <Image
+            src="/img/calendar.png"
+            alt="Calendar"
+            width={14}
+            height={15.56}
+            // style={{ position: "absolute", top: "20px", right: "25.5px" }}
+          />
+        </InputContainer>
+        <StyledButton>Tra cứu</StyledButton>
+      </SelectContainer>
       <FlexIcon>
         <Image src="/img/chart.png" alt="Chart" width="30" height="30" />
         <Image
           src="/img/calc.png"
-          alt="Chart"
+          alt="calc"
           width="30"
           height="30"
           style={{ marginLeft: "28px" }}

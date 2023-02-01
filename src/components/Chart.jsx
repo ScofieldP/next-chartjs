@@ -34,9 +34,7 @@ export default function Chart() {
 
   return (
     <Container>
-      <LineContainer>
-        <Line data={state} options={options} />
-      </LineContainer>
+      <Line data={state} options={options} width={1000} height={400} />
       <ButtonContainer>
         <ChartButton>Randomize</ChartButton>
         <ChartButton>Add Dataset</ChartButton>

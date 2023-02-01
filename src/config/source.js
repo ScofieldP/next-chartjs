@@ -10,14 +10,20 @@ export const data = {
     {
       label: "Quỹ 1",
       data: numbers(NUMBER_CFG),
-      borderColor: CHART_COLORS.red,
-      backgroundColor: transparentize(CHART_COLORS.red, 0.5),
+      borderColor: CHART_COLORS.orange,
+      backgroundColor: transparentize(CHART_COLORS.orange, 0.5),
     },
     {
       label: "Quỹ 2",
       data: numbers(NUMBER_CFG),
-      borderColor: CHART_COLORS.blue,
-      backgroundColor: transparentize(CHART_COLORS.blue, 0.5),
+      borderColor: CHART_COLORS.green,
+      backgroundColor: transparentize(CHART_COLORS.green, 0.5),
+    },
+    {
+      label: "Quỹ 3",
+      data: numbers(NUMBER_CFG),
+      borderColor: CHART_COLORS.yellow,
+      backgroundColor: transparentize(CHART_COLORS.yellow, 0.5),
     },
   ],
 };
@@ -30,6 +36,22 @@ export const options = {
       labels: {
         usePointStyle: true,
         pointStyle: "rect",
+      },
+      tooltip: {
+        callbacks: {
+          labelColor: function (context) {
+            return {
+              borderColor: "rgb(0, 0, 255)",
+              backgroundColor: "rgb(255, 0, 0)",
+              borderWidth: 2,
+              borderDash: [2, 2],
+              borderRadius: 2,
+            };
+          },
+          labelTextColor: function (context) {
+            return "#543453";
+          },
+        },
       },
       // position: window.innerWidth > 470 ? "top" : "bottom",
       // align: window.innerWidth > 470 ? "end" : "center",
