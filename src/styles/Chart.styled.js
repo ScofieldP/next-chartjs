@@ -17,6 +17,7 @@ export const Container = styled.div`
 `;
 
 export const LineContainer = styled.div`
+  position: relative;
   ${mobile({
     padding: "0",
     width: "90vw",
@@ -24,7 +25,7 @@ export const LineContainer = styled.div`
     // width: "95%",
     // height: "365px",
     // margin: "0",
-  })}
+  })};
 `;
 
 export const ButtonContainer = styled.div`
@@ -65,4 +66,27 @@ export const ChartButton = styled.button`
     border-color: rgba(48, 128, 208, 0.4);
     color: #3080d0;
   }
+`;
+
+export const TooltipContainer = styled.div`
+  width: 160px;
+  height: 30px;
+  border-radius: 4px 4px 0px 0px;
+`;
+
+export const TooltipDate = styled.p`
+  background-color: #0a3b32;
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const TooltipValue = styled.p`
+  background-color: #ffffff;
+  color: #0a3b32;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

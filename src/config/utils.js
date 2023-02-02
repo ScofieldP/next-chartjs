@@ -42,66 +42,66 @@ export function numbers(config) {
   return data;
 }
 
-export function labels(config) {
-  var cfg = config || {};
-  var min = cfg.min || 0;
-  var max = cfg.max || 100;
-  var count = cfg.count || 8;
-  var step = (max - min) / count;
-  var decimals = cfg.decimals || 8;
-  var dfactor = Math.pow(10, decimals) || 0;
-  var prefix = cfg.prefix || "";
-  var values = [];
-  var i;
+// export function labels(config) {
+//   var cfg = config || {};
+//   var min = cfg.min || 0;
+//   var max = cfg.max || 100;
+//   var count = cfg.count || 8;
+//   var step = (max - min) / count;
+//   var decimals = cfg.decimals || 8;
+//   var dfactor = Math.pow(10, decimals) || 0;
+//   var prefix = cfg.prefix || "";
+//   var values = [];
+//   var i;
 
-  for (i = min; i < max; i += step) {
-    values.push(prefix + Math.round(dfactor * i) / dfactor);
-  }
+//   for (i = min; i < max; i += step) {
+//     values.push(prefix + Math.round(dfactor * i) / dfactor);
+//   }
 
-  return values;
-}
+//   return values;
+// }
 
-export const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-export const DAYS = [
-  newDateStrings(0),
-  newDateStrings(5),
-  newDateStrings(10),
-  newDateStrings(15),
-  newDateStrings(20),
-];
+// export const MONTHS = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
+// export const DAYS = [
+//   newDateStrings(0),
+//   newDateStrings(5),
+//   newDateStrings(10),
+//   newDateStrings(15),
+//   newDateStrings(20),
+// ];
 // console.log(DAYS[4]);
-export function months(config) {
-  var cfg = config || {};
-  var count = cfg.count || 12;
-  var section = cfg.section;
-  var values = [];
-  var i, value;
+// export function months(config) {
+//   var cfg = config || {};
+//   var count = cfg.count || 12;
+//   var section = cfg.section;
+//   var values = [];
+//   var i, value;
 
-  for (i = 0; i < count; ++i) {
-    value = MONTHS[Math.ceil(i) % 12];
-    values.push(value.substring(0, section));
-  }
+//   for (i = 0; i < count; ++i) {
+//     value = MONTHS[Math.ceil(i) % 12];
+//     values.push(value.substring(0, section));
+//     console.log("re-render");
+//   }
 
-  return values;
-}
+//   return values;
+// }
 
 export function days(config) {
   var cfg = config || {};
   var count = cfg.count || 12;
-  var section = cfg.section;
   var values = [];
 
   for (var i = 0; i < count; ++i) {
@@ -159,11 +159,9 @@ export function namedColor(index) {
 
 export function newDate(days) {
   const date = DateTime.now().plus({ days }).toJSDate();
-  // console.log(typeof date);
   return date;
 }
 const dates = newDate(1);
-// console.log(dates.toISOString());
 
 export function newDateString(days) {
   return DateTime.local(2020, 8, 1, 17, 36).plus({ days }).toISODate();

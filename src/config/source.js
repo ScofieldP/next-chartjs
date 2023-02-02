@@ -9,6 +9,7 @@ import {
   newDateStrings,
   newDateString,
 } from "./utils.js";
+import { useState } from "react";
 
 export const DATA_COUNT = 5;
 export const NUMBER_CFG = {
@@ -37,7 +38,7 @@ for (let day = 1; day <= 31; day++) {
 const maxTicksLimit = 5;
 function createLabels() {
   const days = newData.map((o) => o.x);
-  console.log(days);
+  // console.log(days);
   const startTime = days[0];
   const endTime = days[days.length - 1];
   const tickGap = newData.length / (maxTicksLimit - 1);
@@ -91,113 +92,4 @@ const customLabel = (tooltip) => {
       };
     },
   };
-};
-export const options = {
-  // interaction: {
-  //   mode: "index",
-  //   intersect: false,
-  // },
-  // responsive: true,
-  normalized: true,
-  spanGaps: true,
-
-  // showLine: false, // disable for all datasets
-  // interaction: {
-  //   mode: "nearest",
-  // },
-  data: data,
-  scales: {
-    x: {
-      ticks: {
-        tooltipFormat: "dd.M.yyyy",
-        source: "labels",
-        // stepSize: 5,
-        autoSkip: true,
-        // min: newDateStrings(5),
-        // max: newDateStrings(20),
-        maxTicksLimit: 5,
-      },
-      scaleLabel: {
-        display: true,
-      },
-      type: "time",
-      autoSkip: false,
-      time: {
-        displayFormats: {
-          day: "dd/MM",
-        },
-        unit: "day",
-      },
-      // time: {
-      //   unit: "day",
-      //   displayFormats: {
-      //     day: "D",
-      //   },
-      // },
-    },
-    y: {
-      min: 0.9,
-      max: 1,
-      ticks: {
-        stepSize: 0.02,
-      },
-    },
-  },
-
-  plugins: {
-    // decimation: {
-    //   enabled: false,
-    //   algorithm: "min-max",
-    // },
-    tooltip: {
-      // backgroundColor: "#eee",
-      borderColor: CHART_COLORS.orange,
-      borderWidth: 1,
-      bodyColor: "#fff",
-      footerColor: "#fff",
-      titleColor: CHART_COLORS.orange,
-      displayColors: false,
-      yAlign: "bottom",
-      callbacks: {
-        title: function (context) {
-          console.log(context);
-        },
-        label: function (context) {
-          return (
-            "Giá trị" +
-            " " +
-            context.dataset.label +
-            ":" +
-            " " +
-            context.dataset.data[context.dataIndex]
-          );
-          console.log(context);
-        },
-      },
-    },
-    // tooltip: {
-    //   // enabled: false,
-
-    //   position: "nearest",
-    // },
-    legend: {
-      labels: {
-        usePointStyle: true,
-        pointStyle: "rect",
-      },
-
-      position:
-        typeof window !== "undefined" && window.innerWidth > 470
-          ? "top"
-          : "bottom",
-      align:
-        typeof window !== "undefined" && window.innerWidth > 470
-          ? "end"
-          : "center",
-      position: "top",
-      align: "end",
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-  },
 };

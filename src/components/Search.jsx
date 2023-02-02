@@ -40,7 +40,7 @@ export default function Search() {
           alt="Chart"
           width="30"
           height="30"
-          priority
+          priority={true}
         />
         <Image
           src="/img/calc.png"
