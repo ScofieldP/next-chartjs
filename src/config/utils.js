@@ -105,7 +105,7 @@ export function days(config) {
   var values = [];
 
   for (var i = 0; i < count; ++i) {
-    values.push(newDateStrings(i));
+    values.push(newDateString(i));
     console.log("re-render");
   }
 
@@ -166,7 +166,7 @@ const dates = newDate(1);
 // console.log(dates.toISOString());
 
 export function newDateString(days) {
-  return DateTime.local(2020, 8, 5, 17, 36).plus({ days }).toISODate();
+  return DateTime.local(2020, 8, 1, 17, 36).plus({ days }).toISODate();
 }
 
 export function newDateStrings(days) {
