@@ -69,8 +69,8 @@ export default function Chart() {
   };
   const addData = () => {
     if (state.datasets.length > 0) {
-      state.labels = months({ count: state.labels.length + 1 });
-
+      state.labels = days({ count: state.labels.length + 1 });
+      console.log(state);
       // for (let index = 0; index < data.datasets.length; ++index) {
       //   state.datasets[index].data.push(rand(0.9, 1));
       // }

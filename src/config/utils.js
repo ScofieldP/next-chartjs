@@ -75,7 +75,14 @@ export const MONTHS = [
   "November",
   "December",
 ];
-
+export const DAYS = [
+  newDateStrings(0),
+  newDateStrings(5),
+  newDateStrings(10),
+  newDateStrings(15),
+  newDateStrings(20),
+];
+// console.log(DAYS[4]);
 export function months(config) {
   var cfg = config || {};
   var count = cfg.count || 12;
@@ -96,15 +103,15 @@ export function days(config) {
   var count = cfg.count || 12;
   var section = cfg.section;
   var values = [];
-  var i, value;
 
-  for (i = 0; i < count; ++i) {
-    value = MONTHS[Math.ceil(i) % 12];
-    values.push(value.substring(0, section));
+  for (var i = 0; i < count; ++i) {
+    values.push(newDateStrings(i));
+    console.log("re-render");
   }
 
   return values;
 }
+
 export const COLORS = [
   "#4dc9f6",
   "#f67019",
@@ -152,13 +159,19 @@ export function namedColor(index) {
 
 export function newDate(days) {
   const date = DateTime.now().plus({ days }).toJSDate();
+  // console.log(typeof date);
   return date;
 }
+const dates = newDate(1);
+// console.log(dates.toISOString());
 
 export function newDateString(days) {
-  return DateTime.now().plus({ days }).toISO();
+  return DateTime.local(2020, 8, 5, 17, 36).plus({ days }).toISODate();
 }
 
+export function newDateStrings(days) {
+  return DateTime.local(2020, 7, 15, 17, 36).plus({ days }).toISODate();
+}
 export function parseISODate(str) {
   return DateTime.fromISO(str);
 }

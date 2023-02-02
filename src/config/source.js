@@ -4,6 +4,10 @@ import {
   months,
   CHART_COLORS,
   getDates,
+  days,
+  DAYS,
+  newDateStrings,
+  newDateString,
 } from "./utils.js";
 
 export const DATA_COUNT = 5;
@@ -13,13 +17,16 @@ export const NUMBER_CFG = {
   max: 1,
 };
 
-export const labels = [
-  "2020-07-01",
-  "2020-07-11",
-  "2020-07-21",
-  "2020-07-31",
-  "2020-08-10",
-];
+// export const labels = [
+//   "2020-07-01",
+//   "2020-07-11",
+//   "2020-07-21",
+//   "2020-07-31",
+//   "2020-08-10",
+// ];
+export const labels = days({ count: 5 });
+// export const labels = DAYS;
+
 export const data = {
   labels: labels,
   datasets: [
@@ -71,15 +78,33 @@ export const options = {
   scales: {
     x: {
       ticks: {
-        stepSize: 10,
+        source: "ticks",
+        distribution: "series",
+        tooltipFormat: "dd.M.yyyy",
+
+        // stepSize: 5,
+        autoSkip: true,
+        min: newDateStrings(5),
+        max: newDateStrings(20),
+      },
+      scaleLabel: {
+        display: true,
       },
       type: "time",
+      autoSkip: false,
       time: {
-        unit: "day",
         displayFormats: {
-          day: "D",
+          day: "dd/MM",
         },
+        unit: "day",
+        // stepSize: 5,
       },
+      // time: {
+      //   unit: "day",
+      //   displayFormats: {
+      //     day: "D",
+      //   },
+      // },
     },
     y: {
       min: 0.9,
