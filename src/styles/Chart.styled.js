@@ -10,23 +10,18 @@ export const Container = styled.div`
   ${mobile({
     marginTop: "24px",
     padding: "0",
-    // width: "95%",
-    // height: "365px",
-    // margin: "0",
   })}
 `;
 
 export const LineContainer = styled.div`
   position: relative;
-  height: 50vh;
-  width: 70vw;
-  ${mobile({
-    padding: "0",
-    width: "90vw",
+  margin: auto;
+  height: 60vh;
+  width: 80vw;
 
-    // width: "95%",
-    // height: "365px",
-    // margin: "0",
+  ${mobile({
+    width: "80vw",
+    height: "250px",
   })};
 `;
 
