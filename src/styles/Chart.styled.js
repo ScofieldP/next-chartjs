@@ -18,6 +18,8 @@ export const Container = styled.div`
 
 export const LineContainer = styled.div`
   position: relative;
+  height: 50vh;
+  width: 70vw;
   ${mobile({
     padding: "0",
     width: "90vw",

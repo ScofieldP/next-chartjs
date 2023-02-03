@@ -11,7 +11,7 @@ import {
   SubTitle,
   Tooltip,
   Legend,
-} from "chart.js/auto";
+} from "chart.js";
 import { data } from "@/config/source";
 import {
   Container,
@@ -27,11 +27,8 @@ import {
   numbers,
   namedColor,
   transparentize,
-  months,
   days,
   rand,
-  newDate,
-  newDateString,
 } from "@/config/utils";
 import _ from "lodash";
 
@@ -55,12 +52,9 @@ export default function Chart() {
     top: 0,
     left: 0,
   });
-  const [tooltipData, setTooltipData] = useState(null);
   const options = {
     responsive: true,
-    normalized: true,
-    spanGaps: true,
-
+    maintainAspectRatio: false,
     data: data,
     scales: {
       x: {
@@ -119,7 +113,6 @@ export default function Chart() {
       },
     },
   };
-  console.log(tooltip);
 
   const random = () => {
     state.datasets.forEach((dataset) => {
@@ -140,8 +133,7 @@ export default function Chart() {
       borderColor: dsColor,
       data: numbers({ count: state.labels.length, min: 0.9, max: 1 }),
     };
-    // state.datasets.push(newDataset);
-    // chart.update();
+
     state.datasets.push(newDataset);
     setState({ ...state, datasets: [...state.datasets] });
   };
@@ -150,22 +142,14 @@ export default function Chart() {
       state.labels = days({
         count: state.labels.length + 1,
       });
-      for (let index = 0; index < data.datasets.length; ++index) {
-        state.datasets[index].data.push(rand(0.9, 1));
-      }
+      // for (let index = 0; index < data.datasets.length; ++index) {
+      //   state.datasets[index].data.push(rand(0.9, 1));
+      // }
       // new datasets();
       state.datasets.forEach((dataset) => {
         dataset.data.push(rand(0.9, 1));
       });
     }
-    // console.log(state);
-    // if (state.datasets.length > 0) {
-    //   state.labels.push(days({}));
-
-    //   state.datasets.forEach((dataset) => {
-    //     dataset.data.push(rand(0.9, 1));
-    //   });
-    // }
 
     setState({ ...state, datasets: [...state.datasets] });
   };
@@ -183,13 +167,7 @@ export default function Chart() {
   return (
     <Container>
       <LineContainer>
-        <Line
-          data={state}
-          ref={chartRef}
-          options={options}
-          width={1000}
-          height={500}
-        />
+        <Line data={state} ref={chartRef} options={options} />
         <div
           className="tooltip"
           style={{

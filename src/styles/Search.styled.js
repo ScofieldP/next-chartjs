@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 40px;
+  padding: 12px 24px;
   background-color: #ffffff;
   border-radius: 4px;
 
@@ -19,7 +19,6 @@ export const Container = styled.div`
 export const SelectContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
   ${mobile({
     display: "inline-flex",
     flexDirection: "column",
@@ -30,12 +29,12 @@ export const SelectContainer = styled.div`
 `;
 
 export const Select = styled.select`
+  padding: 0px 20px;
   color: var(--orange-fs);
   font-size: 16px;
   line-height: 24px;
   width: 236px;
   height: 44px;
-  padding-left: 20px;
   border: 1px solid #dbdfe1;
   border-radius: 4px;
   cursor: pointer;
@@ -56,8 +55,10 @@ export const InputContainer = styled.div`
   border-radius: 4px;
   ${mobile({
     width: "85vw",
-
     marginLeft: "0",
+    padding: "0px 20px",
+
+    justifyContent: "space-between",
   })}
 `;
 
@@ -68,6 +69,7 @@ export const StyledInput = styled.input`
   width: 275px;
   color: #e87722;
   border: none;
+  ${mobile({})}
 `;
 export const FlexIcon = styled.div`
   display: inline-flex;
